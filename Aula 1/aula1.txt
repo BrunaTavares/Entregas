@@ -1,0 +1,21 @@
+1 Revisão
+
+a. Um sistema de repositório é um serviço utilizado para manter uma controle
+de versão de um código, permite que o mesmo programa seja feito por várias 
+pessoas que as alterações sejam mescladas e feitas por outras pessoas.
+
+b. Os principais fabricantes de microcontroladores são Atmel, Intel e Texas Instruments
+
+c. UART : Comunicação síncrona serial
+   Timer : Temporalizador
+   GPIO : controle dos pinos de forma digital
+   A/D : conversor analógico para digital (ADC)
+   PWM : modulação por largura de pulsos
+   SpI/i2c : comunicações seriais com outros chips
+
+d. Big endian os bytes de maior ordem de um número serão armazenados nos menores endereços
+de memória já o little endian é ao contrário
+
+2
+
+a. Descreva mais a fundo o funcionamento do barramento AMBA (APB,AHB, AXI)
