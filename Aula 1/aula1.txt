@@ -1,21 +1,22 @@
-1 Revis„o
+1 Revis√£o
 
-a. Um sistema de repositÛrio È um serviÁo utilizado para manter uma controle
-de vers„o de um cÛdigo, permite que o mesmo programa seja feito por v·rias 
-pessoas que as alteraÁıes sejam mescladas e feitas por outras pessoas.
+a. Um sistema de reposit√≥rio √© um servi√ßo utilizado para manter uma controle
+de vers√£o de um c√≥digo, permite que o mesmo programa seja feito por v√°rias 
+pessoas que as altera√ß√µes sejam mescladas e feitas por outras pessoas.
 
-b. Os principais fabricantes de microcontroladores s„o Atmel, Intel e Texas Instruments
+b. Os principais fabricantes de microcontroladores s√£o Atmel, Intel e Texas Instruments
 
-c. UART : ComunicaÁ„o sÌncrona serial
+c. UART : Comunica√ß√£o s√≠ncrona serial
    Timer : Temporalizador
    GPIO : controle dos pinos de forma digital
-   A/D : conversor analÛgico para digital (ADC)
-   PWM : modulaÁ„o por largura de pulsos
-   SpI/i2c : comunicaÁıes seriais com outros chips
+   A/D : conversor anal√≥gico para digital (ADC)
+   PWM : modula√ß√£o por largura de pulsos
+   SpI/i2c : comunica√ß√µes seriais com outros chips
 
-d. Big endian os bytes de maior ordem de um n˙mero ser„o armazenados nos menores endereÁos
-de memÛria j· o little endian È ao contr·rio
+d. Big endian os bytes de maior ordem de um n√∫mero ser√£o armazenados nos menores endere√ßos
+de mem√≥ria j√° o little endian √© ao contr√°rio
 
 2
 
-a. Descreva mais a fundo o funcionamento do barramento AMBA (APB,AHB, AXI)
+a. O AMBA (Arquitetura de Barramento Avan√ßado de Microcontrolador) √© respons√°vel por fazer a conex√£o entre os m√≥dulos da placa, ele √© dividido em barramento do sistema (AHB e AXI) e barramento de perif√©ricos (APB). O barramento AHB (Advanced High-performance Bus) √© usado quando √© necess√°ria altas frequ√™ncias de clock como por exemplo transa√ß√µes de transfer√™ncia utilizando pipeline. O barramento AXI (Advance Extensible Interface) tamb√©m √© utilizado em opera√ß√µes de altas frequ√™ncias mas n√£o utiliza pontes complexas, assim tem alta performnace.Por fim o barramento APB (Advanced Peripheral Bus) √© utilizado para controlar dispositivos perif√©ricos e de baixo consumo de energia e pouca banda como o sinal de clock.
+
