@@ -20,3 +20,9 @@ de memória já o little endian é ao contrário
 
 a. O AMBA (Arquitetura de Barramento Avançado de Microcontrolador) é responsável por fazer a conexão entre os módulos da placa, ele é dividido em barramento do sistema (AHB e AXI) e barramento de periféricos (APB). O barramento AHB (Advanced High-performance Bus) é usado quando é necessária altas frequências de clock como por exemplo transações de transferência utilizando pipeline. O barramento AXI (Advance Extensible Interface) também é utilizado em operações de altas frequências mas não utiliza pontes complexas, assim tem alta performnace.Por fim o barramento APB (Advanced Peripheral Bus) é utilizado para controlar dispositivos periféricos e de baixo consumo de energia e pouca banda como o sinal de clock.
 
+b. O pipeline em um uC significa que é possível em um único ciclo de clock realizar mais de uma instrução com exceção às instruções de desvio que necessita de mais de um ciclo de clock. A CPU quebra o ciclo busca-decodifica-executa em passos menores que podem ser executados em paralelo o que acelera a execução.
+
+3 
+
+a. Para medir o desempenho de um microcontrolador pode-se fazer um benchmark
+
