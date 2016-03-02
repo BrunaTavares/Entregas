@@ -24,5 +24,19 @@ b. O pipeline em um uC significa que é possível em um único ciclo de clock re
 
 3 
 
-a. Para medir o desempenho de um microcontrolador pode-se fazer um benchmark
+a. Para medir o desempenho de um microcontrolador pode-se fazer um benchmark, como por exemplo que mede a latência da resposta da entrada e saída (I/O), ou seja o tempo que demora para o sistema mudar o sinal de saída em resposta a entrada.
+
+b. Os modos de endereçamento de memória são: 
+   • Inerente
+   • Registrador
+   • Imediato
+   • Direto
+   • Indireto por Registrador 
+   
+d. A diferença entre os tipos de variável é o tamanho de endereçamento de cada uma: coda numero int tem pelo menos 16 bits, char tem 8 bits,float tem 32 bits e real 
+char: Caracter: O valor armazenado é um caractere. Caracateres geralmente são armazenados em códigos (usualmente o código ASCII) e tem o tamanho de 1 byte  que é igual a 8 bits.
+int: Número inteiro é o tipo padrão e o tamanho do conjunto que pode ser representado normalmente depende da máquina em que o programa está rodando. Tem 4 bytes de tamanho.
+float: Número em ponto flutuante de precisão simples. São conhecidos normalmente como números reais. Tem 4 bytes de tamanho
+double: Número em ponto flutuante de precisão dupla. Tem 8 bytes de tamanho.
+
 
