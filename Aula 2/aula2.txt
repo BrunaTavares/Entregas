@@ -1,0 +1,7 @@
+1
+a
+-Um compilador é um programa feito para ler um programa de uma linguagem fonte e traduzi-la para um programa semanticamente equivalente, porém escrito em outra linguagem a de código objeto, ou seja ele traduz uma liguagem de alto nível para uma linguagem de baixo nível.
+-Um assembler é um programa que cria o código objeto traduzindo as instruções da linguagem de montagem (assembly) para código de máquina.
+-Um linker é um programa de computador que liga todos os programas em linguagem objeto que foi gerada por um compilador e forma um ficheiro executável. Ele coloca o programa final em um formato compatível com as necessidades do sistema operacional para carregá-lo em memória e colocá-lo em execução.
+
+b.
