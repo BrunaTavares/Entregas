@@ -4,4 +4,10 @@ a
 -Um assembler é um programa que cria o código objeto traduzindo as instruções da linguagem de montagem (assembly) para código de máquina.
 -Um linker é um programa de computador que liga todos os programas em linguagem objeto que foi gerada por um compilador e forma um ficheiro executável. Ele coloca o programa final em um formato compatível com as necessidades do sistema operacional para carregá-lo em memória e colocá-lo em execução.
 
-b.
+b. RTOS é o nome que se dá a um sistema operacional em tempo real.Ele executa múltiplas tarefas que são interações com meio em um tempo de resposta pré definido e se esse tempo, ou prazo, for perdido o sistema falhou.
+
+c. O desenvolvimento em V é um método usado para a produção de um software em que demonstra como as atividades de testes estão relacionadas com analise e projeto. Ou seja enquanto se faz o projeto, o software vai sendo testado assim se houver algum problema pode-se corrigi-lo melhora a qualidade do produto resultante e a juda a desenvolver requisitos.
+
+d. C++ é uma extensão da linguagem C que implementa o paradigma da programação orientada a objeto, já a linguagem C é uma linguagem funcional.
+
+2 Prototipagem 
