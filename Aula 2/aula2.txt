@@ -10,4 +10,5 @@ c. O desenvolvimento em V é um método usado para a produção de um software em qu
 
 d. C++ é uma extensão da linguagem C que implementa o paradigma da programação orientada a objeto, já a linguagem C é uma linguagem funcional.
 
-2 Prototipagem 
+2 Função 2 
+Prototipagem na linguagem C é a declaração de uma função especificando seu nome, aridade, tipos de argumento e tipo de retorno. Essa declaração o ocorre normalmente depois da declaração de variáveis e a definição da função costuma vir depois da função principal(main).
