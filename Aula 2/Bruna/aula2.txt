@@ -1,4 +1,4 @@
-1
+﻿1
 a
 -Um compilador é um programa feito para ler um programa de uma linguagem fonte e traduzi-la para um programa semanticamente equivalente, porém escrito em outra linguagem a de código objeto, ou seja ele traduz uma liguagem de alto nível para uma linguagem de baixo nível.
 -Um assembler é um programa que cria o código objeto traduzindo as instruções da linguagem de montagem (assembly) para código de máquina.
@@ -12,3 +12,6 @@ d. C++ é uma extensão da linguagem C que implementa o paradigma da programaç�
 
 2 Função 2 
 Prototipagem na linguagem C é a declaração de uma função especificando seu nome, aridade, tipos de argumento e tipo de retorno. Essa declaração o ocorre normalmente depois da declaração de variáveis e a definição da função costuma vir depois da função principal(main).
+
+2.11 Malloc
+A função  malloc  (o nome é uma abreviatura de memory allocation) aloca um bloco de bytes consecutivos na memória do computador e devolve o endereço desse bloco.  O número de bytes é especificado no argumento da função.Deve-se usar a função free para liberar a porção de memória alocada por malloc.
