@@ -1,14 +1,14 @@
 1
 a
--Um compilador È um programa feito para ler um programa de uma linguagem fonte e traduzi-la para um programa semanticamente equivalente, porÈm escrito em outra linguagem a de cÛdigo objeto, ou seja ele traduz uma liguagem de alto nÌvel para uma linguagem de baixo nÌvel.
--Um assembler È um programa que cria o cÛdigo objeto traduzindo as instruÁıes da linguagem de montagem (assembly) para cÛdigo de m·quina.
--Um linker È um programa de computador que liga todos os programas em linguagem objeto que foi gerada por um compilador e forma um ficheiro execut·vel. Ele coloca o programa final em um formato compatÌvel com as necessidades do sistema operacional para carreg·-lo em memÛria e coloc·-lo em execuÁ„o.
+-Um compilador √© um programa feito para ler um programa de uma linguagem fonte e traduzi-la para um programa semanticamente equivalente, por√©m escrito em outra linguagem a de c√≥digo objeto, ou seja ele traduz uma liguagem de alto n√≠vel para uma linguagem de baixo n√≠vel.
+-Um assembler √© um programa que cria o c√≥digo objeto traduzindo as instru√ß√µes da linguagem de montagem (assembly) para c√≥digo de m√°quina.
+-Um linker √© um programa de computador que liga todos os programas em linguagem objeto que foi gerada por um compilador e forma um ficheiro execut√°vel. Ele coloca o programa final em um formato compat√≠vel com as necessidades do sistema operacional para carreg√°-lo em mem√≥ria e coloc√°-lo em execu√ß√£o.
 
-b. RTOS È o nome que se d· a um sistema operacional em tempo real.Ele executa m˙ltiplas tarefas que s„o interaÁıes com meio em um tempo de resposta prÈ definido e se esse tempo, ou prazo, for perdido o sistema falhou.
+b. RTOS √© o nome que se d√° a um sistema operacional em tempo real.Ele executa m√∫ltiplas tarefas que s√£o intera√ß√µes com meio em um tempo de resposta pr√© definido e se esse tempo, ou prazo, for perdido o sistema falhou.
 
-c. O desenvolvimento em V È um mÈtodo usado para a produÁ„o de um software em que demonstra como as atividades de testes est„o relacionadas com analise e projeto. Ou seja enquanto se faz o projeto, o software vai sendo testado assim se houver algum problema pode-se corrigi-lo melhora a qualidade do produto resultante e a juda a desenvolver requisitos.
+c. O desenvolvimento em V √© um m√©todo usado para a produ√ß√£o de um software em que demonstra como as atividades de testes est√£o relacionadas com analise e projeto. Ou seja enquanto se faz o projeto, o software vai sendo testado assim se houver algum problema pode-se corrigi-lo melhora a qualidade do produto resultante e a juda a desenvolver requisitos.
 
-d. C++ È uma extens„o da linguagem C que implementa o paradigma da programaÁ„o orientada a objeto, j· a linguagem C È uma linguagem funcional.
+d. C++ √© uma extens√£o da linguagem C que implementa o paradigma da programa√ß√£o orientada a objeto, j√° a linguagem C √© uma linguagem funcional.
 
-2 FunÁ„o 2 
-Prototipagem na linguagem C È a declaraÁ„o de uma funÁ„o especificando seu nome, aridade, tipos de argumento e tipo de retorno. Essa declaraÁ„o o ocorre normalmente depois da declaraÁ„o de vari·veis e a definiÁ„o da funÁ„o costuma vir depois da funÁ„o principal(main).
+2 Fun√ß√£o 2 
+Prototipagem na linguagem C √© a declara√ß√£o de uma fun√ß√£o especificando seu nome, aridade, tipos de argumento e tipo de retorno. Essa declara√ß√£o o ocorre normalmente depois da declara√ß√£o de vari√°veis e a defini√ß√£o da fun√ß√£o costuma vir no fim da fun√ß√£o principal(main).
