@@ -14,14 +14,14 @@ int main(void){
         for(x = primo; x > 0; x--){
             if ( primo % x == 0) {
                 ++z;
-                printf("z= %i\n",z);}
+                }
             }		  
             if ( z == 2){	
                 ++i;
                 printf("Primo %d=%d\n", i,primo);	
                 }
             ++primo;
-            printf("primo= %i\n",primo);
+           
         }	        
     
 }
