@@ -34,6 +34,8 @@
 #define PIN_LED_BLUE 19
 #define PIN_LED_GREEN 20 // definindo que o pino verde é o P20 
 #define PIN_LED_RED 20
+#define PIN_BUTTON 3
+#define TEMPO 100
 
 /** 
  * Definição dos ports
@@ -70,19 +72,31 @@ int main (void)
 	// 29.17.4 PMC Peripheral Clock Enable Register 0
 	// 1: Enables the corresponding peripheral clock.
 	// ID_PIOA = 11 - TAB 11-1
-	PMC->PMC_PCER0 |= ID_PIOA;
-	PMC->PMC_PCER0 |= ID_PIOC;
+	PMC->PMC_PCER0 = 1 << ID_PIOA;
+	PMC->PMC_PCER0 = 1 << ID_PIOB;
+	PMC->PMC_PCER0 = 1 << ID_PIOC;
 
 	 //31.6.1 PIO Enable Register
 	// 1: Enables the PIO to control the corresponding pin (disables peripheral control of the pin).	
-	PIOA->PIO_PER |= (1 << PIN_LED_BLUE );
-	PIOA->PIO_PER |= (1 << PIN_LED_GREEN );
-	PIOC->PIO_PER |= (1 << PIN_LED_RED );
+	PIOA->PIO_PER = (1 << PIN_LED_BLUE );
+	PIOA->PIO_PER = (1 << PIN_LED_GREEN );
+	PIOC->PIO_PER = (1 << PIN_LED_RED );
+	PIOB->PIO_PER = (1 << PIN_BUTTON );
 
 	// 31.6.46 PIO Write Protection Mode Register
 	// 0: Disables the write protection if WPKEY corresponds to 0x50494F (PIO in ASCII).
 	PIOA->PIO_WPMR = 0;
 	PIOC->PIO_WPMR = 0;
+	
+	//Desativar o buffer de saída
+	PIOB->PIO_ODR = (1 << PIN_BUTTON );
+	
+	//Ativar o pull-up
+	PIOB->PIO_PUER= (1 << PIN_BUTTON );
+	
+	//Ativando o Deboucing
+	PIOB->PIO_IFSCDR = (1 << PIN_BUTTON );
+	
 	
 	// 31.6.4 PIO Output Enable Register
 	// 1: Enables the output on the I/O line.
@@ -93,12 +107,12 @@ int main (void)
 	// 31.6.10 PIO Set Output Data Register
 	// 1: Sets the data to be driven on the I/O line.
 	
-	//ACENDE LED
+	//APAGA LED
 	PIOA->PIO_SODR = (1 << PIN_LED_BLUE );
 	PIOA->PIO_SODR = (1 << PIN_LED_GREEN );
 	PIOC->PIO_CODR = (1 << PIN_LED_RED);
 	
-	//PAGA LED
+	//ACENDE LED
 	PIOA->PIO_CODR = (1 << PIN_LED_BLUE );
 	PIOA->PIO_CODR = (1 << PIN_LED_GREEN );
 	PIOC->PIO_SODR = (1 << PIN_LED_RED);
@@ -106,25 +120,42 @@ int main (void)
 	*	Loop infinito
 	*/
 		while(1){
+			//Shift 3 posiçõe e and 1 = transforma tudo em 0 menos o bit da posição 3 e joga para a posição 0 e compara
+			if(((PIOB->PIO_PDSR >> 3) & 1) == 1){
+			PIOA->PIO_SODR = (1 << PIN_LED_BLUE );
+			PIOA->PIO_SODR = (1 << PIN_LED_GREEN );
+			PIOC->PIO_CODR = (1 << PIN_LED_RED);
+			
+			
+			}
+			else{
+			
+			
 	//setar em 1 o PIO_CODR ativa ele portanto PIO_ODSR fica 0 ACENDE LED VERMELHO
 	PIOC->PIO_CODR = (1 << PIN_LED_RED);
 	//setar em 1 o PIO_SODR ativa ele portanto PIO_ODSR fica 0 APAGA LED VERDE
 	PIOA->PIO_CODR = (1 << PIN_LED_GREEN );
-	delay_ms(1000);
+	//setar em 1 o PIO_CODR ativa ele portanto PIO_ODSR fica 0 APAGA LED AZUL
+	PIOA->PIO_CODR = (1 << PIN_LED_BLUE );
+	delay_ms(TEMPO);
 	
 	//setar em 1 o PIO_SODR ativa ele portanto PIO_ODSR fica 1 ACENDE LED AZUL
 	PIOA->PIO_SODR = (1 << PIN_LED_BLUE );
 	//setar em 1 o PIO_SODR ativa ele portanto PIO_ODSR fica 1 APAGA LED VERMELHO
 	PIOC->PIO_SODR = (1 << PIN_LED_RED);
-	delay_ms(1000);
+	//setar em 1 o PIO_SODR ativa ele portanto PIO_ODSR fica 0 APAGA LED VERDE
+	PIOA->PIO_CODR = (1 << PIN_LED_GREEN );
+	delay_ms(TEMPO);
 	
 	//setar em 1 o PIO_SODR ativa ele portanto PIO_ODSR fica 1 ACENDE LED VERDE
 	PIOA->PIO_SODR = (1 << PIN_LED_GREEN );
 	//setar em 1 o PIO_CODR ativa ele portanto PIO_ODSR fica 0 APAGA LED AZUL
 	PIOA->PIO_CODR = (1 << PIN_LED_BLUE );
-	delay_ms(1000);
-	
-	
+	//setar em 1 o PIO_SODR ativa ele portanto PIO_ODSR fica 1 APAGA LED VERMELHO
+	PIOC->PIO_SODR = (1 << PIN_LED_RED);
+	delay_ms(TEMPO);
+		
+			}
 	
 	//delay_ms(1000);
 	

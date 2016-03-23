@@ -227,6 +227,7 @@
           </JtagDaisyChainDevices>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
+        <JlinkConfigFile>C:\Users\bruna\Desktop\GPIO_REGISTRADORES_LED\jlink.config</JlinkConfigFile>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
       <ToolNumber>28012512</ToolNumber>
@@ -457,6 +458,7 @@
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\" />
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\GCC\" />
     <Folder Include="src\config\" />
+    <Folder Include="src\Driver" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\asf.h">
