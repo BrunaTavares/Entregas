@@ -96,6 +96,8 @@ C_SRCS +=  \
 ../src/ASF/sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
 ../src/ASF/sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
 ../src/ASF/sam/utils/syscalls/gcc/syscalls.c \
+../src/Driver/pio_maua.c \
+../src/Driver/pmc_maua.c \
 ../src/main.c
 
 
@@ -118,6 +120,8 @@ src/ASF/sam/drivers/pmc/sleep.o \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.o \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/system_sam4s.o \
 src/ASF/sam/utils/syscalls/gcc/syscalls.o \
+src/Driver/pio_maua.o \
+src/Driver/pmc_maua.o \
 src/main.o
 
 OBJS_AS_ARGS +=  \
@@ -133,6 +137,8 @@ src/ASF/sam/drivers/pmc/sleep.o \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.o \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/system_sam4s.o \
 src/ASF/sam/utils/syscalls/gcc/syscalls.o \
+src/Driver/pio_maua.o \
+src/Driver/pmc_maua.o \
 src/main.o
 
 C_DEPS +=  \
@@ -148,6 +154,8 @@ src/ASF/sam/drivers/pmc/sleep.d \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.d \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/system_sam4s.d \
 src/ASF/sam/utils/syscalls/gcc/syscalls.d \
+src/Driver/pio_maua.d \
+src/Driver/pmc_maua.d \
 src/main.d
 
 C_DEPS_AS_ARGS +=  \
@@ -163,6 +171,8 @@ src/ASF/sam/drivers/pmc/sleep.d \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.d \
 src/ASF/sam/utils/cmsis/sam4s/source/templates/system_sam4s.d \
 src/ASF/sam/utils/syscalls/gcc/syscalls.d \
+src/Driver/pio_maua.d \
+src/Driver/pmc_maua.d \
 src/main.d
 
 OUTPUT_FILE_PATH +=GPIO_REGISTRADORES_LED.elf
@@ -180,6 +190,10 @@ LINKER_SCRIPT_DEP+=  \
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 
@@ -264,6 +278,13 @@ src/ASF/sam/utils/cmsis/sam4s/source/templates/%.o: ../src/ASF/sam/utils/cmsis/s
 	
 
 src/ASF/sam/utils/syscalls/gcc/%.o: ../src/ASF/sam/utils/syscalls/gcc/%.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 4.9.3
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM4SD32C__ -DDEBUG -D__SAM4SD32C__ -Dscanf=iscanf -DARM_MATH_CM4=true -Dprintf=iprintf -DBOARD=SAM4S_EK2  -I"../common/applications/user_application/sam4sd32c_sam4s_ek2/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/sam/utils/cmsis/sam4s/include" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/sam/boards" -I"../src/ASF/common/boards" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/sam/boards/sam4s_ek2" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/services/ioport" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/common/services/delay"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/Driver/%.o: ../src/Driver/%.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 4.9.3
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM4SD32C__ -DDEBUG -D__SAM4SD32C__ -Dscanf=iscanf -DARM_MATH_CM4=true -Dprintf=iprintf -DBOARD=SAM4S_EK2  -I"../common/applications/user_application/sam4sd32c_sam4s_ek2/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/sam/utils/cmsis/sam4s/include" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/sam/boards" -I"../src/ASF/common/boards" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/sam/boards/sam4s_ek2" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/services/ioport" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/common/services/delay"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

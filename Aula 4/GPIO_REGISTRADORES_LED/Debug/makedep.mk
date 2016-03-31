@@ -26,5 +26,9 @@ src\ASF\sam\utils\cmsis\sam4s\source\templates\system_sam4s.c
 
 src\ASF\sam\utils\syscalls\gcc\syscalls.c
 
+src\Driver\pio_maua.c
+
+src\Driver\pmc_maua.c
+
 src\main.c
 
