@@ -62,15 +62,12 @@ void atualiza_lcd(double valor){
 	//Limpa circulo
 	ili93xx_set_foreground_color(COLOR_WHITE);
 	ili93xx_draw_filled_rectangle(35, 240, 200, 75);
-	//ili93xx_set_foreground_color(COLOR_WHITE);
-	//ili93xx_draw_filled_rectangle(0,90,ILI93XX_LCD_WIDTH,200);
-	
+		
 	//Desenha Circulo
 	ili93xx_set_foreground_color(COLOR_BLACK);
 	ili93xx_draw_circle(120, 160, 80);
 	
-	//ili93xx_set_foreground_color(COLOR_BLACK);
-	//ili93xx_draw_circle(ILI93XX_LCD_WIDTH/2, ILI93XX_LCD_HEIGHT/2, 40);
+
 	double angulo = valor * M_PI/4095;
 	double x, y;
 	x = ILI93XX_LCD_WIDTH/2 - cos(angulo)*80;
@@ -78,7 +75,12 @@ void atualiza_lcd(double valor){
 	ili93xx_draw_line(ILI93XX_LCD_WIDTH/2, ILI93XX_LCD_HEIGHT/2, x, y);
 	char buffer[10];
 	snprintf(buffer, 10, "%4.0f Ohms", valor);
-	ili93xx_draw_string(130, 110, (uint8_t *)buffer);
+	//Limpa texto
+	ili93xx_set_foreground_color(COLOR_WHITE);
+	ili93xx_draw_filled_rectangle(75, 70, 220,45);
+	//Escreve texto
+	ili93xx_set_foreground_color(COLOR_BLACK);
+	ili93xx_draw_string(80, 50, (uint8_t *)buffer);
 }
 
 /************************************************************************/
@@ -122,19 +124,19 @@ static void push_button_handle(uint32_t id, uint32_t mask)
 
 void ADC_Handler(void)
 {
-	uint32_t resistencia;
+	uint32_t tmp;
 	uint32_t status ;
 
 	status = adc_get_status(ADC);
 	
 	/* Checa se a interrupção é devido ao canal 5 */
 	if ((status & ADC_ISR_EOC5)) {
-		resistencia = adc_get_channel_value(ADC, ADC_POT_CHANNEL);
-		if ((resistencia > adc_value_old + 2) || (resistencia < adc_value_old - 2))
+		tmp = adc_get_channel_value(ADC, ADC_POT_CHANNEL);
+		if ((tmp > adc_value_old + 2) || (tmp < adc_value_old - 2))
 		{
-			atualiza_lcd(resistencia);
+			atualiza_lcd(tmp);
 		}
-		adc_value_old = resistencia;
+		adc_value_old = tmp;
 	}
 	
 	
@@ -287,10 +289,6 @@ void configure_adc(void)
 }
 
 
-
-
-
-
 /************************************************************************/
 /* MAIN                                                                 */
 /************************************************************************/
@@ -304,38 +302,16 @@ int main(void)
 	configure_tc();
 	//configure_botao();
 	configure_adc();
-	
-	
-	
-//Desenha o circulo
-//ili93xx_set_foreground_color(COLOR_BLACK);
-//ili93xx_draw_circle(120, 160, 80);
 
-/** Draw text, image and basic shapes on the LCD */
-ili93xx_set_foreground_color(COLOR_BLACK);
-ili93xx_draw_string(10, 20, (uint8_t *)"14 - ADC");
 
+	/** Draw text, image and basic shapes on the LCD */
+	ili93xx_set_foreground_color(COLOR_BLACK);
+	ili93xx_draw_string(10, 20, (uint8_t *)"14 - ADC");
+	//Nomes da Equipe
+	ili93xx_draw_string(10, 260, (uint8_t *)"Bruna");
+	ili93xx_draw_string(10, 280, (uint8_t *)"Bruno");
+	ili93xx_draw_string(10, 300, (uint8_t *)"Keny");
 atualiza_lcd(0.8);
-//Vertical Inferior
-//ili93xx_draw_line(120, 160, 120, 240);
-
-//Vertical superior
-//ili93xx_set_foreground_color(COLOR_BLACK);
-//ili93xx_draw_string(110, 60, (uint8_t *)"0.5");
-//ili93xx_draw_line(120, 160, 120, 80);
-
-//Horizontal Direita
-//ili93xx_set_foreground_color(COLOR_BLACK);
-//ili93xx_draw_string(220, 160, (uint8_t *)"1");
-//ili93xx_draw_line(120, 160, 200, 160);
-
-
-//horizontal Esquerda
-//ili93xx_set_foreground_color(COLOR_BLACK);
-//ili93xx_draw_string(20, 160, (uint8_t *)"0");
-//ili93xx_draw_line(120, 160, 40, 160);
-
-
 	
 	while (1) {
 	}
