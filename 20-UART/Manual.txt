@@ -1,0 +1,24 @@
+Configuração do Teminal
+
+-  Baud Rate 115200 
+-  8 bits of data
+-  No parity
+-  1 stop bit
+-  No flow control
+
+
+
+MENU 
+
+  M : Exibe o MENU 
+
+  B : ON/OFF o LED AZUL  
+
+  R : ON/OFF o LED VERMELHO 
+
+  G : ON/OFF o LED VERDE 
+
+  S : Status dos LED's 
+
+  1 : Pisca Azul
+
