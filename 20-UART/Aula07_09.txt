@@ -1,0 +1,1 @@
+Na aula 07/09 fizemos o LED vermelho e verde piscar igual ao azul através com comando serial, mas não conseguimos enviar e cabaram deletando os arquivos do computador
